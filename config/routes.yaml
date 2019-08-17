@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+activity_pub:
+  resource: '../lib/ActivityPubBundle/Controller/'
+  type: annotation

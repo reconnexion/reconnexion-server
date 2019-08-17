@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+    php:
+        build: ./php-fpm
+        container_name: activitypub_php
+        ports:
+            - "9001:9001"
+        volumes:
+            - ../:/var/www/symfony:cached
+            - ./logs/symfony:/var/www/symfony/var/log:cached
+        links:
+            - db
+        extra_hosts:
+            - "docker-host.localhost:127.0.0.1"
+
+    nginx:
+        build: ./nginx
+        container_name: activitypub_nginx
+        ports:
+            - "80:80"
+        links:
+            - php
+        volumes:
+            - ./logs/nginx:/var/log/nginx:cached
+            - ../:/var/www/symfony:cached
+
+    db:
+        image: mysql
+        container_name: activitypub_mysql
+        command: ["--default-authentication-plugin=mysql_native_password"]
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: symfony
+            MYSQL_USER: symfony
+            MYSQL_PASSWORD: symfony
+        # Comment the volumes if you don't want to persist the MySQL data locally
+        # On Mac and Windows, this can vastly improve the performances
+        volumes:
+            - ./mysql:/var/lib/mysql:delegated
+
