@@ -2,6 +2,9 @@
     "alymosul/exponent-server-sdk-php": {
         "version": "v1.1.2"
     },
+    "assemblee-virtuelle/activitypub-bundle": {
+        "version": "dev-master"
+    },
     "cocur/slugify": {
         "version": "v3.2"
     },

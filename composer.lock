@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8539c80b22c1975ec9362608e5176d4d",
+    "content-hash": "ce1aa717ec67a8276d395b456238a6cf",
     "packages": [
         {
             "name": "alymosul/exponent-server-sdk-php",
@@ -47,6 +47,37 @@
                 "push"
             ],
             "time": "2019-01-18T13:18:59+00:00"
+        },
+        {
+            "name": "assemblee-virtuelle/activitypub-bundle",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "lib/ActivityPubBundle",
+                "reference": "b2f03189258a83c2dc3d3399f0ccdbf16f69ab8b"
+            },
+            "require": {
+                "php": "^7.1.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "AV\\ActivityPubBundle\\": ""
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sébastien Rosset",
+                    "email": "srosset81@gmail.com"
+                }
+            ],
+            "description": "ActivityPub integration for Symfony 4",
+            "keywords": [
+                "activitypub"
+            ]
         },
         {
             "name": "cocur/slugify",
@@ -6764,8 +6795,9 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
+        "assemblee-virtuelle/activitypub-bundle": 20,
         "landrok/activitypub": 20
     },
     "prefer-stable": false,
