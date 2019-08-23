@@ -69,7 +69,8 @@
     "repositories": [
         {
             "type": "path",
-            "url": "lib/ActivityPubBundle"
+            "url": "lib/ActivityPubBundle",
+            "symlink": true
         }
     ],
     "scripts": {
