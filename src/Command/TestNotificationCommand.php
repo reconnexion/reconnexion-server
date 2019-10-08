@@ -2,9 +2,9 @@
 
 namespace App\Command;
 
-use App\Entity\Device;
 use App\Service\PushService;
 use App\Type\NotificationType;
+use AV\ActivityPubBundle\Entity\Actor;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -30,29 +30,25 @@ class TestNotificationCommand extends Command
     public function configure()
     {
         $this
-            ->addArgument('actionId', InputArgument::REQUIRED);
+            ->addArgument('username', InputArgument::REQUIRED);
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $actionId = $input->getArgument('actionId');
+        $username = $input->getArgument('username');
 
-        $output->writeln(['Sending notification to all devices about action :', $actionId, '']);
+        $output->writeln("Sending notification to all devices of actor {$username}");
 
-        $devicesRepo = $this->em->getRepository(Device::class);
-        /** @var Device[] $devices */
-        $devices = $devicesRepo->findAll();
+        $actorRepo = $this->em->getRepository(Actor::class);
 
-        foreach($devices as $device) {
-            $output->write('Sending to user ' . $device->getUser()->getUsername() . '...');
+        $actor = $actorRepo->findOneBy(['username' => $username]);
 
-            $this->pushService->notifyDevice(
-                $device,
-                "Une nouvelle action a été ajoutée !",
-                ['type' => NotificationType::CREATE_ACTIVITY, 'objectId' => $actionId]
-            );
+        $this->pushService->notifyActor(
+            $actor,
+            "Ceci est un test pour voir si la notification fonctionne",
+            ['type' => NotificationType::ACTIVATION]
+        );
 
-            $output->writeln('OK!');
-        }
+        $output->writeln('OK!');
     }
 }
