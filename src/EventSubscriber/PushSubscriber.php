@@ -47,7 +47,7 @@ class PushSubscriber implements EventSubscriberInterface
         foreach( $receivingActors as $actor ) {
             $this->pushService->notifyActor(
                 $actor,
-                $activity->getSummary(),
+                "Nouvelle actualité postée par {$activity->getActor()->getName()}",
                 [
                     'type' => NotificationType::CREATE_ACTIVITY,
                     'summary' => $activity->getSummary(),
