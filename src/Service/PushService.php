@@ -49,13 +49,13 @@ class PushService
 
         $this->logger->info('Subscribe result for device ' . $deviceToken . ' with ID device_' . $device->getId() . " : " . $result);
 
-        if( $newDevice ) {
+//        if( $newDevice ) {
             $this->notifyDevice(
                 $device,
                 "Notifications activées avec succès !",
                 ['type' => NotificationType::ACTIVATION]
             );
-        }
+//        }
     }
 
     // Notify all devices connected to the actor
