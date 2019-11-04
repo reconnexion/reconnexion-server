@@ -36,13 +36,13 @@ class PushService
 
             $this->em->persist($device);
             $this->em->flush();
-        }
 
-        $this->notifyDevice(
-            $device,
-            "Notifications activées avec succès !",
-            ['type' => NotificationType::ACTIVATION]
-        );
+            $this->notifyDevice(
+                $device,
+                "Notifications activées avec succès !",
+                ['type' => NotificationType::ACTIVATION]
+            );
+        }
     }
 
     // Notify all devices connected to the actor
@@ -74,15 +74,17 @@ class PushService
 
     public function notifyDevice(Device $device, string $message, array $data = [])
     {
-        /** @var NotificationContentModel $notificationContentModel */
-        $notificationContentModel = $this->expo->sendNotification($message, $device->getToken(), '', $data);
+        if( $device->getToken() ) {
+            /** @var NotificationContentModel $notificationContentModel */
+            $notificationContentModel = $this->expo->sendNotification($message, $device->getToken(), '', $data);
 
-        $device->setLatestResponse([
-            'wasSuccessful' => $notificationContentModel->getWasSuccessful(),
-            'responseMessage' => $notificationContentModel->getResponseMessage(),
-            'responseDetails' => $notificationContentModel->getResponseDetails(),
-        ]);
+            $device->setLatestResponse([
+                'wasSuccessful' => $notificationContentModel->getWasSuccessful(),
+                'responseMessage' => $notificationContentModel->getResponseMessage(),
+                'responseDetails' => $notificationContentModel->getResponseDetails(),
+            ]);
 
-        $this->em->flush();
+            $this->em->flush();
+        }
     }
 }
