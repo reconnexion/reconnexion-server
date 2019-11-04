@@ -7,7 +7,8 @@ use App\Entity\User;
 use App\Type\NotificationType;
 use AV\ActivityPubBundle\Entity\Actor;
 use Doctrine\ORM\EntityManagerInterface;
-use ExponentPhpSDK\Expo;
+use Solvecrew\ExpoNotificationsBundle\Manager\NotificationManager;
+use Solvecrew\ExpoNotificationsBundle\Model\NotificationContentModel;
 
 class PushService
 {
@@ -15,20 +16,18 @@ class PushService
 
     private $expo;
 
-    public function __construct(EntityManagerInterface $em)
+    public function __construct(EntityManagerInterface $em, NotificationManager $notificationManager)
     {
         $this->em = $em;
-        // TODO use https://github.com/solvecrew/ExpoNotificationsBundle
-        $this->expo = Expo::normalSetup();
+        $this->expo = $notificationManager;
     }
 
     public function subscribe(User $user, string $deviceToken)
     {
-        $newDevice = false;
-
         $deviceRepo = $this->em->getRepository(Device::class);
         $device = $deviceRepo->findOneBy(['token' => $deviceToken]);
 
+        // If device was not registered yet
         if( !$device ) {
             $device = new Device();
             $device
@@ -38,12 +37,6 @@ class PushService
             $this->em->persist($device);
             $this->em->flush();
 
-            $newDevice = true;
-        }
-
-        $this->expo->subscribe('device_' . $device->getId(), $deviceToken);
-
-        if( $newDevice ) {
             $this->notifyDevice(
                 $device,
                 "Notifications activées avec succès !",
@@ -81,14 +74,17 @@ class PushService
 
     public function notifyDevice(Device $device, string $message, array $data = [])
     {
-        $notification = [
-            'body' => $message
-        ];
+        if( $device->getToken() ) {
+            /** @var NotificationContentModel $notificationContentModel */
+            $notificationContentModel = $this->expo->sendNotification($message, $device->getToken(), '', $data);
 
-        if( count($data) > 0 ) {
-            $notification['data'] = json_encode($data);
+            $device->setLatestResponse([
+                'wasSuccessful' => $notificationContentModel->getWasSuccessful(),
+                'responseMessage' => $notificationContentModel->getResponseMessage(),
+                'responseDetails' => $notificationContentModel->getResponseDetails(),
+            ]);
+
+            $this->em->flush();
         }
-
-        $this->expo->notify('device_' . $device->getId(), $notification);
     }
 }

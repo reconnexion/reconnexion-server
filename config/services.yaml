@@ -36,3 +36,9 @@ services:
         autowire: false
         arguments:
             - '@activity_pub.service'
+
+    App\Service\PushService:
+        autowire: false
+        arguments:
+            - '@doctrine.orm.entity_manager'
+            - '@sc_expo_notifications.notification_manager'

@@ -1,7 +1,4 @@
 {
-    "alymosul/exponent-server-sdk-php": {
-        "version": "v1.1.2"
-    },
     "assemblee-virtuelle/activitypub-bundle": {
         "version": "dev-master"
     },
@@ -105,11 +102,29 @@
     "egulias/email-validator": {
         "version": "2.1.7"
     },
+    "eightpoints/guzzle-bundle": {
+        "version": "7.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "7.0",
+            "ref": "7babb21a3928e44e485391907e3abc346804e0d2"
+        },
+        "files": [
+            "config/packages/eight_points_guzzle.yaml"
+        ]
+    },
+    "eightpoints/guzzle-wsse-middleware": {
+        "version": "v4.3.0"
+    },
     "facebook/webdriver": {
         "version": "1.6.0"
     },
     "fig/link-util": {
         "version": "1.0.0"
+    },
+    "guzzlehttp/guzzle": {
+        "version": "6.5-dev"
     },
     "guzzlehttp/promises": {
         "version": "1.4-dev"
@@ -248,6 +263,9 @@
         "files": [
             "config/packages/sentry.yaml"
         ]
+    },
+    "solvecrew/expo-notifications-bundle": {
+        "version": "dev-master"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.0"

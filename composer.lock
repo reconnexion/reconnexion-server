@@ -4,57 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ea2e096fd6a3c274ab65f6a80c2186a1",
+    "content-hash": "0a338904e8a45dd0e02f2b00e83539f8",
     "packages": [
-        {
-            "name": "alymosul/exponent-server-sdk-php",
-            "version": "v1.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Alymosul/exponent-server-sdk-php.git",
-                "reference": "c3fec550e2c0c0e6dea94866a122c93d97915f03"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Alymosul/exponent-server-sdk-php/zipball/c3fec550e2c0c0e6dea94866a122c93d97915f03",
-                "reference": "c3fec550e2c0c0e6dea94866a122c93d97915f03",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ExponentPhpSDK\\": "lib"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Aly Suleiman",
-                    "email": "alymosul@gmail.com"
-                }
-            ],
-            "description": "Server-side library for working with Expo push notifications using PHP",
-            "keywords": [
-                "expo",
-                "exponent",
-                "notifications",
-                "push"
-            ],
-            "time": "2019-01-18T13:18:59+00:00"
-        },
         {
             "name": "assemblee-virtuelle/activitypub-bundle",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/assemblee-virtuelle/ActivityPubBundle.git",
+                "reference": "ab423dbf18ac517c650cafc5f49bf8dfa672fa2a"
+            },
             "dist": {
-                "type": "path",
-                "url": "lib/ActivityPubBundle",
-                "reference": "b2f03189258a83c2dc3d3399f0ccdbf16f69ab8b"
+                "type": "zip",
+                "url": "https://api.github.com/repos/assemblee-virtuelle/ActivityPubBundle/zipball/ab423dbf18ac517c650cafc5f49bf8dfa672fa2a",
+                "reference": "ab423dbf18ac517c650cafc5f49bf8dfa672fa2a",
+                "shasum": ""
             },
             "require": {
                 "php": "^7.1.3"
@@ -1438,6 +1402,125 @@
             "time": "2018-12-04T22:38:24+00:00"
         },
         {
+            "name": "eightpoints/guzzle-bundle",
+            "version": "v7.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/8p/EightPointsGuzzleBundle.git",
+                "reference": "b2e56e140e07526ec2fef53aca303ab60b75b912"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/8p/EightPointsGuzzleBundle/zipball/b2e56e140e07526ec2fef53aca303ab60b75b912",
+                "reference": "b2e56e140e07526ec2fef53aca303ab60b75b912",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=7.0",
+                "psr/log": "~1.0",
+                "symfony/expression-language": "~2.7|~3.0|~4.0",
+                "symfony/framework-bundle": "~2.7|~3.0|~4.0",
+                "symfony/stopwatch": "~2.7|~3.0|~4.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7|~3.0|~4.0",
+                "symfony/twig-bundle": "~2.7|~3.0|~4.0",
+                "symfony/var-dumper": "~2.7|~3.0|~4.0",
+                "symfony/yaml": "~2.7|~3.0|~4.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "EightPoints\\Bundle\\GuzzleBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Preusner",
+                    "email": "florian.preusner@8points.de",
+                    "homepage": "https://github.com/florianpreusner"
+                },
+                {
+                    "name": "Community",
+                    "homepage": "https://github.com/8p/GuzzleBundle/contributors"
+                }
+            ],
+            "description": "Integrates Guzzle 6.x, a PHP HTTP Client, into Symfony 2/3/4. Comes with easy and powerful configuration options and optional plugins.",
+            "homepage": "https://github.com/8p/GuzzleBundle",
+            "keywords": [
+                "Guzzle",
+                "bundle",
+                "client",
+                "curl",
+                "http client",
+                "rest",
+                "symfony",
+                "web service"
+            ],
+            "time": "2019-10-02T11:16:13+00:00"
+        },
+        {
+            "name": "eightpoints/guzzle-wsse-middleware",
+            "version": "v4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/8p/guzzle-wsse-middleware.git",
+                "reference": "006f72d41beb27f48c58574ef1691f79732caf19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/8p/guzzle-wsse-middleware/zipball/006f72d41beb27f48c58574ef1691f79732caf19",
+                "reference": "006f72d41beb27f48c58574ef1691f79732caf19",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": ">=6.0",
+                "paragonie/random_compat": ">=2",
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "EightPoints\\Guzzle": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Preusner",
+                    "email": "florian.preusner@8points.de",
+                    "homepage": "https://github.com/florianpreusner"
+                },
+                {
+                    "name": "Community",
+                    "homepage": "https://github.com/eightpoints/guzzle-wsse-middleware/contributors"
+                }
+            ],
+            "description": "WSSE Middleware for Guzzle, a PHP HTTP client library and framework for building RESTful web service clients",
+            "homepage": "https://github.com/8p/guzzle-wsse-middleware",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "middleware",
+                "plugin",
+                "rest",
+                "web service",
+                "wsse"
+            ],
+            "time": "2019-08-09T06:54:03+00:00"
+        },
+        {
             "name": "fig/link-util",
             "version": "1.0.0",
             "source": {
@@ -1490,6 +1573,72 @@
                 "rest"
             ],
             "time": "2016-10-17T18:31:11+00:00"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "df36d8dae3979cf927d5bbbed6f0427f39aadfec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/df36d8dae3979cf927d5bbbed6f0427f39aadfec",
+                "reference": "df36d8dae3979cf927d5bbbed6f0427f39aadfec",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.6.1",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.4 || ^7.0",
+                "psr/log": "^1.1"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.5-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2019-10-30T11:22:04+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -3625,6 +3774,65 @@
                 "symfony"
             ],
             "time": "2019-10-04T13:26:24+00:00"
+        },
+        {
+            "name": "solvecrew/expo-notifications-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/solvecrew/ExpoNotificationsBundle.git",
+                "reference": "667bda05a128d9cf5be75a4eb7da472c9c319b46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/solvecrew/ExpoNotificationsBundle/zipball/667bda05a128d9cf5be75a4eb7da472c9c319b46",
+                "reference": "667bda05a128d9cf5be75a4eb7da472c9c319b46",
+                "shasum": ""
+            },
+            "require": {
+                "eightpoints/guzzle-bundle": "^6.0|~7.0",
+                "eightpoints/guzzle-wsse-middleware": "~4.0",
+                "guzzlehttp/guzzle": "~6.0",
+                "php": ">=7.0",
+                "psr/log": "~1.0",
+                "symfony/dependency-injection": "~2.3|~3.0|~4.0",
+                "symfony/event-dispatcher": "~2.3|~3.0|~4.0",
+                "symfony/expression-language": "~2.3|~3.0|~4.0",
+                "symfony/http-kernel": "~2.3|~3.0|~4.0"
+            },
+            "require-dev": {
+                "eightpoints/guzzle-bundle": "^6.0|~7.0",
+                "php": ">=5.3",
+                "phpunit/phpunit": "~5.4",
+                "symfony/config": "2.3|~3.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Solvecrew\\ExpoNotificationsBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Julian Treichel",
+                    "email": "info@solvecrew.com"
+                },
+                {
+                    "name": "Yannick Treichel",
+                    "email": "info@solvecrew.com"
+                }
+            ],
+            "description": "Bundle to handle the BE tasks of the push notifications service for the expo react-native Framework.",
+            "homepage": "http://solvecrew.github.com",
+            "keywords": [
+                "expo",
+                "push notifications"
+            ],
+            "time": "2019-03-25T19:01:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -8030,7 +8238,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "assemblee-virtuelle/activitypub-bundle": 20,
-        "landrok/activitypub": 20
+        "landrok/activitypub": 20,
+        "solvecrew/expo-notifications-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
