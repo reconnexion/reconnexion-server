@@ -47,7 +47,7 @@ class PushService
 
         $result = $this->expo->subscribe('device_' . $device->getId(), $deviceToken);
 
-        $this->logger->info('Subscribe result for device ' . $deviceToken . ' with ID device_' . $device->getId(), $result);
+        $this->logger->info('Subscribe result for device ' . $deviceToken . ' with ID device_' . $device->getId() . " : " . $result);
 
         if( $newDevice ) {
             $this->notifyDevice(
