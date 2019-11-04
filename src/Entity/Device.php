@@ -32,6 +32,12 @@ class Device
      */
     protected $token;
 
+    /**
+     * @var array
+     * @ORM\Column(name="latest_response", length=255, type="json", nullable=true)
+     */
+    protected $latestResponse;
+
     public function getId(): int
     {
         return $this->id;
@@ -56,12 +62,24 @@ class Device
 
     public function getToken(): string
     {
-        return $this->token;
+        preg_match('/^ExponentPushToken\[([^\]]*)\]$/', $this->token, $matches);
+        return $matches[1];
     }
 
     public function setToken(string $token): Device
     {
         $this->token = $token;
+        return $this;
+    }
+
+    public function getLatestResponse(): array
+    {
+        return $this->latestResponse;
+    }
+
+    public function setLatestResponse(array $latestResponse): Device
+    {
+        $this->latestResponse = $latestResponse;
         return $this;
     }
 }
