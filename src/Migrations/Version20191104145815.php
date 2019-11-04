@@ -16,7 +16,7 @@ final class Version20191104145815 extends AbstractMigration
 
     public function up(Schema $schema) : void
     {
-        $this->addSql('ALTER TABLE device ADD latest_response JSON DEFAULT NULL');
+        $this->addSql('ALTER TABLE device ADD latest_response LONGTEXT DEFAULT NULL');
     }
 
     public function down(Schema $schema) : void
