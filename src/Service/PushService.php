@@ -8,6 +8,7 @@ use App\Type\NotificationType;
 use AV\ActivityPubBundle\Entity\Actor;
 use Doctrine\ORM\EntityManagerInterface;
 use ExponentPhpSDK\Expo;
+use Psr\Log\LoggerInterface;
 
 class PushService
 {
@@ -15,11 +16,14 @@ class PushService
 
     private $expo;
 
-    public function __construct(EntityManagerInterface $em)
+    private $logger;
+
+    public function __construct(EntityManagerInterface $em, LoggerInterface $logger)
     {
         $this->em = $em;
         // TODO use https://github.com/solvecrew/ExpoNotificationsBundle
         $this->expo = Expo::normalSetup();
+        $this->logger = $logger;
     }
 
     public function subscribe(User $user, string $deviceToken)
@@ -41,7 +45,9 @@ class PushService
             $newDevice = true;
         }
 
-        $this->expo->subscribe('device_' . $device->getId(), $deviceToken);
+        $result = $this->expo->subscribe('device_' . $device->getId(), $deviceToken);
+
+        $this->logger->info('Subscribe result for device ' . $deviceToken . ' with ID device_' . $device->getId(), $result);
 
         if( $newDevice ) {
             $this->notifyDevice(
