@@ -82,6 +82,7 @@ class PushService
                 'wasSuccessful' => $notificationContentModel->getWasSuccessful(),
                 'responseMessage' => $notificationContentModel->getResponseMessage(),
                 'responseDetails' => $notificationContentModel->getResponseDetails(),
+                'sent' => new \DateTime(),
                 'body' => $notificationContentModel->getBody(),
                 'data' => $notificationContentModel->getData()
             ]);
