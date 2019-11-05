@@ -18,6 +18,7 @@ services:
         build: ./nginx
         container_name: activitypub_nginx
         ports:
+            - "1819:80"
             - "80:80"
         links:
             - php

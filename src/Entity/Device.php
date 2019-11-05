@@ -60,7 +60,7 @@ class Device
         return $this;
     }
 
-    public function getToken(): string
+    public function getToken(): ?string
     {
         // Extract expo token
         preg_match('/^ExponentPushToken\[([^\]]*)\]$/', $this->token, $matches);
