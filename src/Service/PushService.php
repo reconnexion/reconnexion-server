@@ -82,6 +82,8 @@ class PushService
                 'wasSuccessful' => $notificationContentModel->getWasSuccessful(),
                 'responseMessage' => $notificationContentModel->getResponseMessage(),
                 'responseDetails' => $notificationContentModel->getResponseDetails(),
+                'body' => $notificationContentModel->getBody(),
+                'data' => $notificationContentModel->getData()
             ]);
 
             $this->em->flush();
